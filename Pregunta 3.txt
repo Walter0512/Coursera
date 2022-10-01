@@ -1,0 +1,5 @@
+Pregunta 3: Utilice  https://thumbtack.github.io/abba/demo/abba.html para calcular los ascensos en las métricas y los valores p para las métricas
+binarias ("15 day order binary" y "15 day view binary") utilizando un intervalo de confianza del 85%. 
+
+************
+Para orders_bin: la elevación es de -10% – 9% (-1.7%) and pval is 0.80

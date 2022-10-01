@@ -1,0 +1,18 @@
+Pregunta 4: 
+Utilice la tabla final_assignments para calcular la vista binaria, y el promedio de vistas para la ventana de 
+15 días después de la asignación de la prueba para item_test_2.
+
+Sentencia:
+SELECT view_binary.test_assignment,
+       COUNT(DISTINCT view_binary.item_id) AS num_views,
+       SUM(view_binary.view_bin_15d) AS sum_view_bin_15d,
+       AVG(view_binary.view_bin_15d) AS avg_view_bin_15d
+FROM  (SELECT assignments.item_id,
+          assignments.test_assignment,
+          MAX(CASE WHEN (DATE(views.event_time)-DATE(assignments.test_start_date)) BETWEEN 1 AND 15 THEN 1 ELSE 0 END) AS view_bin_15d
+   FROM dsv1069.final_assignments AS assignments
+   LEFT JOIN dsv1069.view_item_events AS views ON assignments.item_id=views.item_id
+   WHERE assignments.test_number='item_test_2'
+   GROUP BY assignments.test_assignment,assignments.item_id            
+   ORDER BY item_id) AS view_binary
+GROUP BY view_binary.test_assignment

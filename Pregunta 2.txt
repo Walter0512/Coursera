@@ -1,0 +1,8 @@
+Pregunta2: 
+Compare la tabla final_assignments_qa con los eventos de asignación que capturamos para user_level_testing. 
+Pregunta: ¿Tiene esta tabla todo lo necesario para realzizar el calculo métrico como la vista-binaria de 30 días?
+
+Sentencia:
+SELECT  * FROM  dsv1069.final_assignments_qa
+
+Respuesta: No, necesita la fecha y la hora de la asignación para calcular métricas.
